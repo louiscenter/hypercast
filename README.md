@@ -7,7 +7,7 @@ When users connect to your stream, they begin re-distributing your broadcast dat
 
 You can read an old introductory post to `hypervision` at the following URL: [https://louis.center/p2p-hypervision](https://louis.center/p2p-hypervision). It's also available in [Japanese/日本語 🇯🇵](https://louis.center/p2p-hypervision-jp) and [Korean/한국어 🇰🇷](https://louis.center/p2p-hypervision-kr).
 
-![hypercast screenshot](https://louis.center/images/hypercast.gif)
+![hypercast screenshot](https://louis.center/images/hypercast.png)
 
 ## Todo
 - [ ] Video/audio input selection (currently chooses system defaults)
