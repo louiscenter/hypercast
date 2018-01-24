@@ -4,6 +4,8 @@ var onload = require('on-load')
 var broadcast = require('../lib/broadcast')
 var gum = require('../lib/gum')
 
+var settings = require('./settings.js')
+
 var button = require('./button')
 var input = require('./input')
 var label = require('./label')
@@ -12,8 +14,10 @@ module.exports = home
 
 function home (state, emit) {
   var el = html`
-    <div id="container">
+    <div class="container">
       <video id="preview" autoplay muted></video>
+
+      ${state.ui.settings ? settings(): null}
 
       <div id="interface">
         <div id="nav">
@@ -26,6 +30,13 @@ function home (state, emit) {
               color: !state.broadcast.active ? 'green' : 'grey',
               onclick: !state.broadcast.active ? startBroadcast : stopBroadcast,
               text: `${!state.broadcast.active ? 'Start' : 'Stop'} Broadcast`
+            })}
+          </div>
+          <div id="">
+            ${button({
+              color: 'grey',
+              onclick: viewSettings,
+              text: `Settings`
             })}
           </div>
         </div>
@@ -42,6 +53,10 @@ function home (state, emit) {
       </div>
     </div>
   `
+
+  function viewSettings () {
+    emit('ui:settings')
+  }
 
   onload(el, function () {
     gum(function (err, stream) {
