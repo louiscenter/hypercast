@@ -5,6 +5,12 @@ app.use(function (state, emitter) {
   state.broadcast = {}
   state.broadcast.active = false
   state.broadcast.key = null
+  state.broadcast.audioOnly = false
+
+  emitter.on('audioOnlyToggle', function() {
+    state.broadcast.audioOnly = !state.broadcast.audioOnly
+    emitter.emit('render')
+  })
 
   emitter.on('broadcast:start', function (key) {
     state.broadcast.active = true

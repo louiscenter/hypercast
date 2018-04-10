@@ -15,20 +15,22 @@
 
   <body>
     <div id="container">
-      <video id="player" autoplay controls></video>
       <div id="info">streaming via <a href="https://github.com/louiscenter/hypercast">hypercast</a></div>
     </div>
-
+    <script type="text/javascript" src="mime.js"></script>
     <script>
+      var el_player = document.createElement(/audio/.test(mime) ? 'audio' : 'video')
+      el_player.autoplay = true;
+      el_player.controls = true;
+      document.querySelector('#container').appendChild(el_player);
       var archive = new DatArchive(window.location.href)
       var mediaSource = new MediaSource()
 
-      var el_player = document.getElementById('player')
       el_player.src = window.URL.createObjectURL(mediaSource)
 
       var sourceBuffer
       mediaSource.addEventListener('sourceopen', function () {
-        sourceBuffer = mediaSource.addSourceBuffer('video/webm;codecs=vp9,opus')
+        sourceBuffer = mediaSource.addSourceBuffer(mime)
         sourceBuffer.mode = 'sequence'
 
         read()
