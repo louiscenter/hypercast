@@ -39,8 +39,7 @@ canvas {
 }
 
 #actions { display: flex; }
-#actions { label: ; }
-/* #actions button:first-child { margin-right: 0.5rem; } */
+#actions button:first-child { margin-right: 0.5rem; }
 
 #container {
   height: 100vh;
