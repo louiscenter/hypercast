@@ -13,13 +13,20 @@ app.use(function (state, emitter) {
   })
 
   emitter.on('broadcast:start', function (key) {
+    state.broadcast.peerCount = 0
     state.broadcast.active = true
     state.broadcast.key = key
 
     emitter.emit('render')
   })
 
+  emitter.on('broadcast:peer', function (peerCount) {
+    state.broadcast.peerCount = peerCount
+    emitter.emit('render')
+  })
+
   emitter.on('broadcast:stop', function (key) {
+    state.broadcast.peerCount = 0
     state.broadcast.active = false
     state.broadcast.key = null
 
