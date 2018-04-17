@@ -30,7 +30,16 @@ input[type=text] {
   padding: 0.4rem 0.55rem 0.3rem 0.5rem;
 }
 
+canvas {
+  z-index: 10;
+  position: absolute;
+  top:0;
+  left:0;
+  pointer-events: none;
+}
+
 #actions { display: flex; }
+#actions { label: ; }
 /* #actions button:first-child { margin-right: 0.5rem; } */
 
 #container {
