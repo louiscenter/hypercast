@@ -22,7 +22,7 @@ function home (state, emit) {
         <div id="nav">
           ${label({
             color: !state.broadcast.active ? 'grey' : 'red',
-            text: !state.broadcast.active ? 'Standby' : 'On Air'
+            text: !state.broadcast.active ? 'Standby' : `On Air: ${state.broadcast.peerCount} viewer(s)`
           })}
           <div id="actions">
             ${button({
@@ -79,6 +79,8 @@ function home (state, emit) {
   function startBroadcast () {
     broadcast.start(function (key) {
       emit('broadcast:start', key)
+    }, function(peerCount) {
+      emit('broadcast:peer', peerCount)
     }, state.broadcast.audioOnly)
   }
 
