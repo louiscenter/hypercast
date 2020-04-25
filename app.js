@@ -12,7 +12,10 @@ app.on('ready', function () {
     width: 500,
     height: 397,
     minWidth: 500,
-    minHeight: 397
+    minHeight: 397,
+    webPreferences: {
+      nodeIntegration: true
+      }
   })
 
   win.loadURL('file://' + path.join(__dirname, 'index.html'))

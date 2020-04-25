@@ -13,7 +13,7 @@
     "url": "https://github.com/louiscenter/hypercast"
   },
   "devDependencies": {
-    "electron": "1.8.4"
+    "electron": "^8.2.3"
   },
   "dependencies": {
     "buffer-to-arraybuffer": "0.0.5",
