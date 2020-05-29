@@ -1,7 +1,7 @@
 {
   "name": "hypercast",
-  "version": "1.0.0",
-  "description": "p2p broadcasting for dat:// enabled web browsers",
+  "version": "2.0.0",
+  "description": "p2p broadcasting for hyper:// enabled web browsers",
   "main": "index.js",
   "scripts": {
     "start": "electron app.js"
@@ -13,18 +13,18 @@
     "url": "https://github.com/louiscenter/hypercast"
   },
   "devDependencies": {
-    "electron": "1.8.4"
+    "electron": "^9.0.0"
   },
   "dependencies": {
     "buffer-to-arraybuffer": "0.0.5",
-    "choo": "^6.6.1",
+    "choo": "^7.1.0",
     "getusermedia": "^2.0.1",
-    "hypercore": "^6.12.0",
-    "hyperdiscovery": "^7.0.0",
-    "hyperdrive": "^9.12.0",
-    "media-recorder-stream": "^2.1.1",
-    "on-load": "^3.3.4",
-    "pump": "^1.0.2",
+    "hypercore": "^9.1.0",
+    "hyperdiscovery": "^10.2.1",
+    "hyperdrive": "^10.11.2",
+    "media-recorder-stream": "^2.2.0",
+    "on-load": "^4.0.2",
+    "pump": "^3.0.0",
     "webm-cluster-stream": "^1.0.0"
   }
 }

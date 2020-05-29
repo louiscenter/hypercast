@@ -1,24 +1,32 @@
-var electron = require('electron')
-var path = require('path')
 
-var win = null
-var app = electron.app
-var BrowserWindow = electron.BrowserWindow
+const { app, BrowserWindow } = require ('electron')
 
-app.on('ready', function () {
-  console.log('The application is ready.')
-
-  win = new BrowserWindow({
+function createWindow() 
+{
+  const win = new BrowserWindow({
     width: 500,
     height: 397,
     minWidth: 500,
-    minHeight: 397
-  })
+    minHeight: 397,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
-  win.loadURL('file://' + path.join(__dirname, 'index.html'))
-  win.on('close', function () {
-    win = null
-  })
-
+  win.loadFile("index.html");
   // win.webContents.openDevTools()
-})
+
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.whenReady().then(createWindow)
+console.log("Application is ready")
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+}) 
